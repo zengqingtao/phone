@@ -10,7 +10,7 @@ router.get("/",(req,res)=>{
   var pid=req.query.pid;
   var output={
     product:{},
-    specs:[],
+    specColors:[],
     pics:[],
   }
   if(pid!==undefined){
@@ -19,17 +19,19 @@ router.get("/",(req,res)=>{
       if(err) console.log(err);
       // result是个数组,里面只有一条数据，该数据是个对象
       output.product=result[0];
-      console.log(result);
+      // console.log(result);
       var family_id=output.product["family_id"];//["family_id"]是获取family_id属性的值
-      var sql2=`select spec,pid from phone where family_id=?`;
+      var sql2=`select spec,color,pid from phone where family_id=?`;
       pool.query(sql2,[family_id],(err,result)=>{
         if(err) console.log(err);
-        output.specs=result;
+        // console.log(result);
+        output.specColors=result;
         var sql3=`select * from product_pic where pid=?`
-        pool.query(sql3,[pid],(err,result)=>{
+        pool.query(sql3,[family_id],(err,result)=>{
           if(err) console.log(err);
           output.pics=result;
           res.send(output);
+        // 
         })
       })
     })

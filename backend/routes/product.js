@@ -11,7 +11,6 @@ router.get("/",(req,res)=>{
     // })
     // res.write(JSON.stringify(result))
     // res.end();
-    console.log(result);
     res.send(result);
   })
 })

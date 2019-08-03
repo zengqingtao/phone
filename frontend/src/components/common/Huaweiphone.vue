@@ -4,7 +4,7 @@
       <p class="series">HUAWEI P系列</p>
       <ul class="list">
         <li>
-          <img  src="../../assets/image/index/428_428_1551094056841mp.png">
+          <img  src="../../assets/image/product/1.png">
           <p class="title">HUAWEI P30</p>
         </li>
       </ul>
